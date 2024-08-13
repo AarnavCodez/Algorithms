@@ -1,25 +1,26 @@
-"""
-This algorith is an algorithm to sort lists in ascending or descending order.
-INPUT: Takes in "numbers" which is the array that gets sorted, use lists. "Order" wants to know the order
-"""
-
-
 def sorted_list(numbers, order):
     """
-    Sorts arrays from any order you like
+    Sorts the array in ascending or descending order based on the 'order' parameter.
+    
+    Parameters:
+    numbers (list): The list of numbers to be sorted.
+    order (bool): If True, sort in ascending order; if False, sort in descending order.
+    
+    Returns:
+    list: The sorted list.
     """
-    for i in range(0, len(numbers)):
+    n = len(numbers)
+    
+    for i in range(n):
+        for j in range(i + 1, n):
+            if (order and numbers[i] > numbers[j]) or (not order and numbers[i] < numbers[j]):
+                # Swap elements
+                numbers[i], numbers[j] = numbers[j], numbers[i]
+    
+    return numbers
 
-        if order == True:
-            for j in range(i + 1, len(numbers), 2):
-                if numbers[i] < numbers[j]:
-                    temp = numbers[i]
-                    numbers[i] = numbers[j]
-                    numbers[j] = temp
-        else:
-            for j in range(i + 1, len(numbers), 2):
-                if numbers[i] > numbers[j]:
-                    temp = numbers[i]
-                    numbers[i] = numbers[j]
-                    numbers[j] = temp
-        return numbers
+
+# Example usage
+numbers_list = [1, 5, 2]
+print(sorted_list(numbers_list, True))  # Output: [1, 2, 5]
+print(sorted_list(numbers_list, False))  # Output: [5, 2, 1]
