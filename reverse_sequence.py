@@ -1,5 +1,8 @@
 def inverse_array(sequence):
-    return sequence[::-1]
+    inverse = []
+    for i in range(len(sequence) - 1, -1, -1):
+        inverse.append(sequence[i])
+    return inverse
 
 
 array = [1, 2, 3]
