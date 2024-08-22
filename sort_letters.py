@@ -1,3 +1,4 @@
+
 def sort_letters(input_string):
     letters = [char.lower() for char in input_string if char.isalpha()]
 

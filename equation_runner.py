@@ -1,3 +1,4 @@
+
 def extract_equation(operand1, operator, operand2):
     if operator == "+":
         return operand1 + operand2
